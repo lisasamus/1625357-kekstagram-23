@@ -35,46 +35,19 @@ const names = [
   'Вашингтон',
 ];
 
-const url = [
-  'photos/1.jpg',
-  'photos/2.jpg',
-  'photos/3.jpg',
-  'photos/5.jpg',
-  'photos/6.jpg',
-  'photos/7.jpg',
-  'photos/8.jpg',
-  'photos/9.jpg',
-  'photos/10.jpg',
-  'photos/11.jpg',
-  'photos/12.jpg',
-  'photos/13.jpg',
-  'photos/14.jpg',
-  'photos/15.jpg',
-  'photos/16.jpg',
-  'photos/17.jpg',
-  'photos/18.jpg',
-  'photos/19.jpg',
-  'photos/20.jpg',
-  'photos/21.jpg',
-  'photos/22.jpg',
-  'photos/23.jpg',
-  'photos/24.jpg',
-  'photos/25.jpg',
-];
-
 const userPhotoСount = 25;
 
 const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
 
 const createComment = () => ({
-  commentId: getRandomNumber(0, 25),
+  commentId: getRandomNumber(1, 25),
   avatar: `img/avatar-${getRandomNumber(0, 6)}.svg`,
   message: getRandomArrayElement(message),
   userName: getRandomArrayElement(names),
 });
 const createPhoto = () => ({
-  id: getRandomNumber(0, 25),
-  url: getRandomArrayElement(url),
+  id: getRandomNumber(1, 25),
+  url: `photos/${getRandomNumber(1, 25)}.jpg`,
   description: getRandomArrayElement(description),
   likes: getRandomNumber(15, 200),
   comment: createComment(),
