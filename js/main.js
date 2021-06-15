@@ -41,7 +41,7 @@ const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements
 
 const createComment = () => ({
   commentId: getRandomNumber(1, 25),
-  avatar: `img/avatar-${getRandomNumber(0, 6)}.svg`,
+  avatar: `img/avatar-${getRandomNumber(1, 6)}.svg`,
   message: getRandomArrayElement(message),
   userName: getRandomArrayElement(names),
 });
@@ -56,4 +56,5 @@ const createPhoto = () => ({
 const userPhotos = new Array(userPhotoСount)
   .fill(null)
   .map(() => createPhoto());
-console.log(userPhotos);
+
+userPhotos();
