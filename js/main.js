@@ -1,3 +1,4 @@
+
 const getRandomNumber = function (min, max) {
   if (min < 0 || min >= max) {
     return 'неверный диапазон';
@@ -7,12 +8,14 @@ const getRandomNumber = function (min, max) {
 getRandomNumber(0, 1000);
 
 const testTextLength = function (text, length) {
+
   if (text.length > length) {
     return false;
   }
 
   return true;
 };
+
 testTextLength('', 140);
 
 const description = ['хорошо', 'плохо', 'розово', 'нормально'];
@@ -58,3 +61,4 @@ const userPhotos = new Array(userPhotoСount)
   .map(() => createPhoto());
 
 userPhotos();
+
