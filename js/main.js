@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const getRandomNumber = function (min, max) {
   if (min < 0 || min >= max) {
     return 'неверный диапазон';
@@ -14,6 +15,23 @@ const testTextLength = function (text, length) {
   return true;
 };
 testTextLength('', 140);
+
+const makeUniqueRandomIntegerGenerator = (min, max) => {
+  const previousValues = [];
+
+  return () => {
+    let currentValue = getRandomNumber(min, max);
+    if (previousValues.length >= (max - min + 1)) {
+      throw new Error(`Перебраны все числа из диапазона от ${min} до ${max}`);
+    }
+    while (previousValues.includes(currentValue)) {
+      currentValue = getRandomNumber(min, max);
+    }
+    previousValues.push(currentValue);
+    return currentValue;
+  };
+};
+
 
 const description = ['хорошо', 'плохо', 'розово', 'нормально'];
 const message = [
@@ -36,6 +54,7 @@ const names = [
 ];
 
 const userPhotoСount = 25;
+const userCommentСount = 5;
 
 const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
 
@@ -45,16 +64,23 @@ const createComment = () => ({
   message: getRandomArrayElement(message),
   userName: getRandomArrayElement(names),
 });
+const getRandomId = makeUniqueRandomIntegerGenerator(1, 25);
+const getRandomUrl = makeUniqueRandomIntegerGenerator(1, 25);
+
+
 const createPhoto = () => ({
-  id: getRandomNumber(1, 25),
-  url: `photos/${getRandomNumber(1, 25)}.jpg`,
+  id: getRandomId(),
+  url: `photos/${getRandomUrl()}.jpg`,
   description: getRandomArrayElement(description),
   likes: getRandomNumber(15, 200),
-  comment: createComment(),
+  comment: new Array(getRandomNumber(1, userCommentСount))
+    .fill(null)
+    .map(() => createComment()),
 });
 
 const userPhotos = new Array(userPhotoСount)
   .fill(null)
   .map(() => createPhoto());
 
-userPhotos();
+userPhotos;
+
