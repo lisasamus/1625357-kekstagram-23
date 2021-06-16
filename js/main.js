@@ -8,12 +8,14 @@ const getRandomNumber = function (min, max) {
 getRandomNumber(0, 1000);
 
 const testTextLength = function (text, length) {
+
   if (text.length > length) {
     return false;
   }
 
   return true;
 };
+
 testTextLength('', 140);
 
 const makeUniqueRandomIntegerGenerator = (min, max) => {
@@ -82,5 +84,5 @@ const userPhotos = new Array(userPhotoСount)
   .fill(null)
   .map(() => createPhoto());
 
-userPhotos;
+console.log(userPhotos);
 
