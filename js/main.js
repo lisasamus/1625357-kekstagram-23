@@ -83,5 +83,6 @@ const userPhotos = new Array(userPhotoСount)
   .map(() => createPhoto());
 
 // eslint-disable-next-line no-console
+
 console.log(userPhotos);
 
