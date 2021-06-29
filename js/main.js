@@ -1,4 +1,4 @@
 import { userPhotos } from './util.js';
-console.log(userPhotos);
+/*console.log(userPhotos);*/
 import './minipicture.js';
 
