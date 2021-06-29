@@ -22,3 +22,5 @@ const names = [
 const userPhotoСount = 25;
 const userCommentСount = 5;
 export { description, message, names, userPhotoСount, userCommentСount };
+
+

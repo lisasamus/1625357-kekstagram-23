@@ -59,4 +59,5 @@ const userPhotos = new Array(userPhotoСount)
   .map(() => createPhoto());
 
 export { userPhotos };
-export { createPhoto };
+
+
