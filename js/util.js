@@ -58,5 +58,13 @@ const userPhotos = new Array(userPhotoСount)
   .fill(null)
   .map(() => createPhoto());
 
-export { userPhotos };
+
+const isEscEvent = (evt) => {
+  return evt.key === 'Escape' || evt.key === 'Esc';
+};
+
+
+
+
+export { userPhotos, isEscEvent };
 
