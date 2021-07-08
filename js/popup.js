@@ -11,12 +11,12 @@ const uploadFile = redactorPhoto.querySelector('#upload-file');
 const body = document.querySelector('body');
 
 
-startForm.addEventListener('click', (evt) => {
+startForm.addEventListener('click', (ev) => {
   redactorPhoto.classList.remove('hidden');
   body.classList.add('modal-open');
-  document.addEventListener('keydown', (ev) => {
-    if (isEscEvent(ev)) {
-      evt.preventDefault();
+  document.addEventListener('keydown', (evt) => {
+    if (isEscEvent(evt)) {
+      ev.preventDefault();
       redactorPhoto.classList.add('hidden');
       uploadFile.value = '';
     }
@@ -24,7 +24,7 @@ startForm.addEventListener('click', (evt) => {
 
 
   redactPhotoCansel.addEventListener('click', () => {
-    evt.preventDefault();
+    ev.preventDefault();
     redactorPhoto.classList.add('hidden');
     uploadFile.value = '';
     body.classList.remove('modal-open');

@@ -58,13 +58,12 @@ const userPhotos = new Array(userPhotoСount)
   .fill(null)
   .map(() => createPhoto());
 
+const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
-const isEscEvent = (evt) => {
-  return evt.key === 'Escape' || evt.key === 'Esc';
-};
+function hasDuplicates(hashTags) {
+  return (new Set(hashTags)).size !== hashTags.length;
+}
 
 
-
-
-export { userPhotos, isEscEvent };
+export { userPhotos, isEscEvent, hasDuplicates };
 
