@@ -1,4 +1,5 @@
 import { description, message, names, userPhotoСount, userCommentСount } from './data.js';
+
 const getRandomNumber = function (min, max) {
   if (min < 0 || min >= max) {
     return 'неверный диапазон';
@@ -58,5 +59,32 @@ const userPhotos = new Array(userPhotoСount)
   .fill(null)
   .map(() => createPhoto());
 
-export { userPhotos };
+const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
+function hasDuplicates(hashTags) {
+  return (new Set(hashTags)).size !== hashTags.length;
+}
+
+const getSpace = function (anotherHashTags) {
+  for (let i = 1; i < anotherHashTags.length; i++) {
+    if (!anotherHashTags[i].match(/^#\s$/)) {
+      return true;
+    }
+  }
+};
+
+const firstHashTag = function (hashTags) {
+  for (let i = 0; i < hashTags.length; i++) {
+    if (!hashTags[i].match(/^#/)) {
+      return true;
+    }
+  }
+};
+
+const findSpace = function (hashTags, anotherHashTags) {
+  if (hashTags.length === anotherHashTags.length - 1) {
+    return true;
+  }
+
+};
+export { userPhotos, isEscEvent, hasDuplicates, getSpace, firstHashTag, findSpace };
